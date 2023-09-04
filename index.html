@@ -1,63 +1,58 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FDND Visitekaartje</title>
     <link rel="stylesheet" href="styles/style.css">
+    <title>Interactive Landing Page</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=switzer@600,900,100&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<article>
-
-    <header>
-
-        <div class="header-content">
-            <p><em>Creatieve Frontend Developer in spé</em></p>
+    <div class="logo">
+        <div class="circle">
+            <div class="line"></div>
         </div>
-
-        <button>
-            <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
-                stroke-linecap="round" stroke-linejoin="round">
-                <title>Wijzig layout</title>
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M4 8v-2a2 2 0 0 1 2 -2h2"></path>
-                <path d="M4 16v2a2 2 0 0 0 2 2h2"></path>
-                <path d="M16 4h2a2 2 0 0 1 2 2v2"></path>
-                <path d="M16 20h2a2 2 0 0 0 2 -2v-2"></path>
-            </svg>
-            <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" fill="none"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M15 19v-2a2 2 0 0 1 2 -2h2"></path>
-                <path d="M15 5v2a2 2 0 0 0 2 2h2"></path>
-                <path d="M5 15h2a2 2 0 0 1 2 2v2"></path>
-                <path d="M5 9h2a2 2 0 0 0 2 -2v-2"></path>
-            </svg>
-        </button>
-
-    </header>
-
-    <div class="content">
-        <img src="assets/creative-coder.png" alt="Creative Coder" width="800" height="800">
-
-        <dl>
-            <dt>HTML</dt>
-            <dd>✰✰</dd>
-
-            <dt>CSS</dt>
-            <dd>✰</dd>
-
-            <dt>JavaScript</dt>
-            <dd>✰</dd>
-        </dl>
-
-        <p>Mijn naam is Jasper Droppert <br> <br> En ik ben klaar voor school.</p>
+        <h1>Trep's Designs</h1>
+    </div>
+    
+    <div class="video-container">
+        <video autoplay muted loop id="video-background">
+            <source src="assets/lavalamp.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
 
-</article>
 
-<script src="scripts/script.js"></script>
+    <div class="container">
+        <div class="frame" id="left-frame">
+            <h2>Skills</h2>
+            <p><span>JavaScript</span> <div class="progress-bar-js"><div class="progress-fill-js"></div></div></p>
+            <p><span>HTML</span> <div class="progress-bar-html"><div class="progress-fill-html"></div></div></p>
+            <p><span>CSS</span> <div class="progress-bar-css"><div class="progress-fill-css"></div></div></p>
+            <p><span>React</span> <div class="progress-bar-react"><div class="progress-fill-react"></div></div></p>
+        </div>
+              
+        <div class="frame" id="middle-frame">
+            <h2>Me</h2>
+            <div class="content">
+                <img src="assets/creative-coder.png" alt="Creative Coder" width="150" height="150">
+            </div>
+        </div>
+        <div class="frame" id="right-frame">
+            <h2>Experience</h2>
+            <p>Java Projects<br> Landing Page<br> React Courses</p>
+        </div>
+    </div>
 
+    <!-- Spotify Embed Link -->
+    <div class="spotify-embed">
+        <iframe style="border-radius: 12px" src="https://open.spotify.com/embed/track/2nCXEbK3Mgyf4iXptsvXwQ?utm_source=generator&theme=0" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+
+    <footer>
+        Copyrighted © Jasper Droppert - Trep's Designs
+    </footer>  
+    <div class="click-effect"></div> <!-- Added div for the click effect -->
+    <script src="scripts/script.js"></script>
 </body>
 </html>
