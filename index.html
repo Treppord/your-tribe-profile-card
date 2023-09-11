@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,52 +8,82 @@
     <title>Interactive Landing Page</title>
     <link href="https://api.fontshare.com/v2/css?f[]=switzer@600,900,100&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="logo">
-        <div class="circle">
-            <div class="line"></div>
-        </div>
-        <h1>Trep's Designs</h1>
-    </div>
-    
+    <div class="overlay" id="overlay"></div>
+    <div class="circle"></div>
+
     <div class="video-container">
         <video autoplay muted loop id="video-background">
-            <source src="assets/lavalamp.mp4" type="video/mp4">
+            <source src="assets/poker_small.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
 
+    <div class="top">
+        <h1 class="curved-text">Who Am I?</h1>
+    </div>
 
-    <div class="container">
-        <div class="frame" id="left-frame">
-            <h2>Skills</h2>
-            <p><span>JavaScript</span> <div class="progress-bar-js"><div class="progress-fill-js"></div></div></p>
-            <p><span>HTML</span> <div class="progress-bar-html"><div class="progress-fill-html"></div></div></p>
-            <p><span>CSS</span> <div class="progress-bar-css"><div class="progress-fill-css"></div></div></p>
-            <p><span>React</span> <div class="progress-bar-react"><div class="progress-fill-react"></div></div></p>
-        </div>
-              
-        <div class="frame" id="middle-frame">
-            <h2>Me</h2>
-            <div class="content">
-                <img src="assets/creative-coder.png" alt="Creative Coder" width="150" height="150">
+    <div class="middle-image">
+        <img src="assets/creative-coder.png" alt="Creative Coder" class="circular-image">
+    </div>
+
+    <div class="image-containers">
+        <div class="image-container fade-in" id="Q1">
+            <img src="assets/question.png">
+            <div class="q1-text">
+                <h2>Skills</h2>
+                <p>HTML
+                <div class="progress-bar-html">
+                    <div class="progress-fill-html"></div>
+                </div> <br>
+                JavaScript <br>
+                <div class="progress-bar-js">
+                    <div class="progress-fill-js"></div>
+                </div> <br>
+                CSS <br>
+                <div class="progress-bar-css">
+                    <div class="progress-fill-css"></div>
+                </div>
+
+
+                </p>
             </div>
         </div>
-        <div class="frame" id="right-frame">
-            <h2>Experience</h2>
-            <p>Java Projects<br> Landing Page<br> React Courses</p>
+
+
+
+        <div class="image-container fade-in" id="Q2">
+            <img src="assets/question.png">
+            <div class="q2-text">
+                <h2>Hobbies</h2>
+                <p>Making Music <br>
+                    Acting <br>
+                    Programming
+                </p>
+            </div>
+        </div>
+        <div class="image-container fade-in" id="Q3">
+            <img src="assets/question.png">
+            <div class="q3-text">
+                <h2>Projects</h2>
+                <p>CurseForge Mods <br>
+                    Landing Pages </p>
+            </div>
+        </div>
+        <div class="image-container fade-in" id="Q4">
+            <img src="assets/question.png">
+            <div class="q4-text">
+                <h2>Goals</h2>
+                <p>Becoming a full stack developer <br> <br>
+                    Performing on Lowlands
+                </p>
+            </div>
         </div>
     </div>
-
-    <!-- Spotify Embed Link -->
-    <div class="spotify-embed">
-        <iframe style="border-radius: 12px" src="https://open.spotify.com/embed/track/2nCXEbK3Mgyf4iXptsvXwQ?utm_source=generator&theme=0" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
 
-    <footer>
-        Copyrighted © Jasper Droppert - Trep's Designs
-    </footer>  
-    <div class="click-effect"></div> <!-- Added div for the click effect -->
-    <script src="scripts/script.js"></script>
+    <script src="scripts/script.js"></script> 
 </body>
+
 </html>

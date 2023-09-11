@@ -1,8 +1,23 @@
+/*The base of the site
+
+body: Defines the main page, the font it uses and which color.
+I also added overflow: hidden; so there is no scrollbar, since I want a 1 page website.
+
+video-container: Is used to make sure the video is correctly displayed.
+I used z-index to place it all the way in the back so the user cannot interact with it.
+
+top and curved-text: Is used as the main Header of the website to direct all to the question,
+Who Am I? I used transform with rotate to give the text a curved edge to it.
+*/
+
+
 body {
+    background-color: #0b0b0b;
     font-family: 'Switzer', sans-serif;
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Prevent scrollbars */
+    overflow: hidden; 
+    color: #cccccc;
 }
 
 .video-container {
@@ -10,8 +25,8 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    z-index: -1; /* Place it behind other content */
+    height: 150%;
+    z-index: -1; 
 }
 
 #video-background {
@@ -20,228 +35,341 @@ body {
     object-fit: cover;
 }
 
-.container {
+
+.top {
+    padding-top: 3em;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
-.frame {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Align content at the top */
-    align-items: center;
-    padding: 40px;
-    height: 250px;
-    width: 200px;
-    background-color: rgba(142, 64, 23, 0.8); /* Use rgba to add transparency */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
-    margin: 10px;
-    border-radius: 10%; /* Make the container oval */
-    color: #ffd6bc;
-}
-
-.frame h2 {
-    margin: 0;
-    align-self: center; /* Center the h2 horizontally */
-}
-
-.subtext {
-    align-self: flex-end;
-    margin-top: auto;
-}
-
-.frame p {
-    text-align: center; /* Center-align the paragraph content */
-    margin: 0;
-}
-
-.frame:hover {
-    transform: scale(1.05);
-}
-
-.content p {
-    margin: 1rem 0;
-    padding: 0 1rem;
-    font-size: 1rem;
-    line-height: 1.5;
+.curved-text {
+    translate: 0em -1em;
+    font-size: 4em; 
+    letter-spacing: 0.1em;
     text-align: center;
-    color: #333; /* Adjust the text color as needed */
+    transform: perspective(400px) rotateX(30deg); 
 }
 
-/* Adjust the progress bar size and position */
-.progress-bar-js {
-    width: 40%; /* Adjust the width for a smaller progress bar */
-    height: 5px; /* Adjust the height for a thinner progress bar */
-    background-color: #ccc;
-    margin-top: 4px; /* Adjust the margin to align with the text */
+
+
+
+
+
+
+
+/*Image Containers
+
+image-containers: Is the main class used to hold all frames and images for the so called "playing cards".
+Pretty self explanatory, Used translate to tweak the position a bit and I used height in vh because it was easier.
+
+image-container: I used transform-style within image-container to make sure it keeps it's 3d format.
+Since I was working on an experimental use of the rotation to make it rotate in a horizontal axis instead of a vertical one.
+
+Q1-Q4 image-container: I used individual ID's per container to give it a rotation of a specific degree to give the
+website a sort of poker hand feel. Later in JS I made sure to re-rotate the cards to normal when clicked upon.
+
+*/
+
+.image-containers {
+    translate: 0em -3em;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+}
+
+.image-container {
+    width: 11em; 
+    height: 17em; 
+    background-color: #ffffff; 
+    margin: 1em; 
+    display: flex;
+    justify-content:center;
+    align-items: center;
     position: relative;
-    display: inline-block; /* Allows it to be inline with the text */
+    border-radius: 10%;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center center;
+}
+
+.image-container#Q1 {
+    rotate: -45deg;
+    translate: 0em 5em;
+}
+
+.image-container#Q2 {
+    rotate: -15deg;
+}
+
+.image-container#Q3 {
+    rotate: 15deg;
+}
+
+.image-container#Q4 {
+    rotate: 45deg;
+    translate: 0em 5em;
+}
+
+.image-container img {
+    max-width: 100%; 
+    max-height: 100%;
+}
+
+
+
+
+
+
+
+/*Container Texts
+q1-q4 text: Very simple method of using different font sizes and margins to create a "Chapter" Line with
+Text underneath. However the display is set to none by default since it is only displayed when clicked upon in Javascript.
+In JS it turns the display into block so the text is displayed correctly.
+
+
+*/
+
+.q1-text {
+    display: none; 
+    color: #000; 
+    background-color: #ffffff00; 
+    padding: 10px; 
+    position: absolute; 
+    top: 0; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    text-align: left; 
+    width: 80%; 
+}
+
+.q1-text h2 {
+    font-size: 24px; 
+    margin-bottom: 10px; 
+}
+
+.q1-text p {
+    font-size: 18px; 
+    margin: 0; 
+}
+
+
+.q2-text {
+    display: none; 
+    color: #000; 
+    background-color: #ffffff00; 
+    padding: 10px; 
+    position: absolute; 
+    top: 0; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    text-align: left; 
+    width: 80%; 
+}
+
+.q2-text h2 {
+    font-size: 24px; 
+    margin-bottom: 10px; 
+}
+
+.q2-text p {
+    font-size: 18px; 
+    margin: 0; 
+}
+
+
+.q3-text {
+    display: none; 
+    color: #000; 
+    background-color: #ffffff00; 
+    padding: 10px; 
+    position: absolute; 
+    top: 0; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    text-align: left; 
+    width: 80%; 
+}
+
+.q3-text h2 {
+    font-size: 24px; 
+    margin-bottom: 10px; 
+}
+
+.q3-text p {
+    font-size: 18px; 
+    margin: 0; 
+}
+
+
+.q4-text {
+    display: none; 
+    color: #000; 
+    background-color: #ffffff00; 
+    padding: 10px; 
+    position: absolute; 
+    top: 0; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    text-align: left; 
+    width: 80%; 
+}
+
+.q4-text h2 {
+    font-size: 24px; 
+    margin-bottom: 10px; 
+}
+
+.q4-text p {
+    font-size: 18px; 
+    margin: 0; 
+}
+
+
+
+
+
+
+/*CSS Progress Bars
+
+All progress bars are small blocks with even smaller blocks inside them, 
+sadly I did not have enough time to add slider functionality. But they work similairly.
+
+I used display: inline-block to make sure it is correctly placed within the container's block.
+
+
+*/
+
+.progress-bar-js {
+    width: 40%; 
+    height: 5px; 
+    background-color: #ccc;
+    margin-top: 4px; 
+    position: relative;
+    display: inline-block; 
 }
 
 .progress-fill-js {
-    width: 10%; /* Adjust the fill width to represent the progress (e.g., 75% for 75%) */
+    width: 10%;
     height: 100%;
-    background-color: #eff31a;
+    background-color: #d81f1f;
 }
 
-/* Adjust the progress bar size and position */
+
 .progress-bar-html {
-    width: 40%; /* Adjust the width for a smaller progress bar */
-    height: 5px; /* Adjust the height for a thinner progress bar */
+    width: 40%; 
+    height: 5px; 
     background-color: #ccc;
-    margin-top: 4px; /* Adjust the margin to align with the text */
+    margin-top: 4px; 
     position: relative;
-    display: inline-block; /* Allows it to be inline with the text */
+    display: inline-block; 
 }
 
 .progress-fill-html {
-    width: 50%; /* Adjust the fill width to represent the progress (e.g., 75% for 75%) */
+    width: 50%;
     height: 100%;
     background-color: #4CAF50;
 }
 
-/* Adjust the progress bar size and position */
+
 .progress-bar-css {
-    width: 40%; /* Adjust the width for a smaller progress bar */
-    height: 5px; /* Adjust the height for a thinner progress bar */
+    width: 40%; 
+    height: 5px; 
     background-color: #ccc;
-    margin-top: 4px; /* Adjust the margin to align with the text */
+    margin-top: 4px; 
     position: relative;
-    display: inline-block; /* Allows it to be inline with the text */
+    display: inline-block; 
 }
 
 .progress-fill-css {
-    width: 35%; /* Adjust the fill width to represent the progress (e.g., 75% for 75%) */
-    height: 100%;
-    background-color: #d87f1f;
-}
-
-/* Adjust the progress bar size and position */
-.progress-bar-react {
-    width: 40%; /* Adjust the width for a smaller progress bar */
-    height: 5px; /* Adjust the height for a thinner progress bar */
-    background-color: #ccc;
-    margin-top: 4px; /* Adjust the margin to align with the text */
-    position: relative;
-    display: inline-block; /* Allows it to be inline with the text */
-}
-
-.progress-fill-react {
-    width: 10%; /* Adjust the fill width to represent the progress (e.g., 75% for 75%) */
+    width: 35%;
     height: 100%;
     background-color: #eff31a;
 }
 
-/* Style the skill labels */
-.frame p {
-    text-align: right; /* Align the text to the right */
-    margin: 0;
-    display: flex;
-    justify-content: space-between; /* Add space between the text and progress bar */
-    align-items: center; /* Center-align items vertically */
-}
 
-
-/* Add the styles for the logo */
-.logo {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    display: flex;
-    align-items: center;
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.logo h1 {
-    margin: 0;
-    align-self: center; /* Center the h2 horizontally */
-    color: #ffd6bc;
-}
-
-
-.circle {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
-}
-
-.line {
-    width: 2px;
-    height: 20px;
-    background-color: #000;
-    transform: rotate(45deg);
-}
-
-
-/* Add the styles for the footer */
-footer {
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0); /* Adjust background color with some transparency */
-    color: #351700;
-    padding: 10px 0;
-    font-size: 14px;
-    position: absolute; /* Position the footer at the bottom */
-    width: 100%; /* Make it full-width */
-    bottom: 0; /* Stick it to the bottom */
-}
-
-
-.click-effect {
-    position: absolute;
-    border-radius: 50%;
-    background-color: rgba(255, 221, 121, 0.5); /* Adjust background color and opacity */
-    width: 20px;
-    height: 20px;
-    transform: scale(0); /* Start with a small scale */
-    transition: transform 0.5s ease-in-out;
-    pointer-events: none; /* Prevent interaction with the effect */
-}
-
-/* Style for the Spotify embed container */
-.spotify-embed {
-    text-align: center; /* Center-align the embedded content */
-    margin-top: 20px; /* Adjust the margin to separate it from the frames */
-    position: absolute; /* Set the container to absolute positioning */
-    bottom: 70px; /* Adjust the distance from the bottom to your preference */
-    left: 0;
-    right: 0;
-}
-
-.spotify-embed iframe {
-    border-radius: 12px;
-    max-width: 100%; /* Ensure the embed fits within the container */
-    width: 60%; /* Make it full-width within the container */
-    height: 152px; /* Set the desired height */
-    position: relative; /* Set iframe to relative positioning */
-}
-
-.frame#middle-frame .content {
-    overflow: hidden;
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
+.progress-bar-react {
+    width: 40%; 
+    height: 5px; 
+    background-color: #ccc;
+    margin-top: 4px; 
     position: relative;
+    display: inline-block; 
 }
 
-.frame#middle-frame .content img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
+.progress-fill-react {
+    width: 10%;
+    height: 100%;
+    background-color: #eff31a;
+}
+
+
+
+
+
+
+/*Profile Image
+
+By adding the img within HTMLv I made sure to link it to these classes to give it a round edge using border-radius: 50%,
+and placing the image slightly downwards with translate and making sure the z-index is below that of the cards when clicked.,
+but higher then the mp4 background.
+
+*/
+
+.middle-image {
     position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0
+}
+
+.circular-image {
+    width: 200px; 
+    height: 200px; 
+    border-radius: 50%; 
+    background-color: #ffffff; 
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); 
+}
+
+
+
+
+
+
+/* Image Container Animation */
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+    opacity: 0; 
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
+
+
+
+
+
+/* WIP Background */
+
+.overlay {
+    display:none;
+    position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(103, 34, 34, 0.821); 
+    z-index: -1; 
 }
-
